@@ -36,6 +36,10 @@ public class UpdateMemberDto
     /// Carrera del integrante.
     /// </summary>
     [Required(ErrorMessage = "La carrera es requerida.")]
-    [EnumDataType(typeof(Career), ErrorMessage = "Carrera inválida.")]
+    [StringLength(
+        50,
+        MinimumLength = 3,
+        ErrorMessage = "La carrera debe tener entre 3 y 50 caracteres."
+    )]
     public required string Career { get; set; }
 }

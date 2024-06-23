@@ -3,15 +3,6 @@ using System.ComponentModel.DataAnnotations;
 namespace hackadisc_dotnet_api.DTOs;
 
 /// <summary>
-/// Carreras disponibles para los integrantes.
-/// </summary>
-public enum Career
-{
-    ICCI,
-    IenCI,
-}
-
-/// <summary>
 /// DTO para la creación de un integrante.
 /// </summary>
 public class CreateMemberDto
@@ -45,6 +36,10 @@ public class CreateMemberDto
     /// Carrera del integrante.
     /// </summary>
     [Required(ErrorMessage = "La carrera es requerida.")]
-    [EnumDataType(typeof(Career), ErrorMessage = "Carrera inválida.")]
+    [StringLength(
+        50,
+        MinimumLength = 3,
+        ErrorMessage = "La carrera debe tener entre 3 y 50 caracteres."
+    )]
     public required string Career { get; set; }
 }
