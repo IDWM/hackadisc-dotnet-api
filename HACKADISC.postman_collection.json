@@ -24,13 +24,31 @@
 			"response": []
 		},
 		{
+			"name": "Get member by ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{api}}/member/1",
+					"host": [
+						"{{api}}"
+					],
+					"path": [
+						"member",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Create member",
 			"request": {
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\": \"Jorge Rivera\",\r\n    \"email\": \"1@gmail.com\",\r\n    \"semester\": 1,\r\n    \"career\": \"asd\"\r\n}",
+					"raw": "{\r\n    \"name\": \"Jorge Rivera\",\r\n    \"email\": \"jorge@gmail.com\",\r\n    \"semester\": 1,\r\n    \"career\": \"ICCI\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -56,7 +74,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\": \"Jorge Rivera\",\r\n    \"email\": \"jorgasderivera@gmail.com\",\r\n    \"semester\": 1,\r\n    \"career\": \"ICCaI\"\r\n}",
+					"raw": "{\r\n    \"name\": \"Ignacio Mancilla\",\r\n    \"email\": \"ignacio@gmail.com\",\r\n    \"semester\": 1,\r\n    \"career\": \"IenCI\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -64,13 +82,13 @@
 					}
 				},
 				"url": {
-					"raw": "{{api}}/member/2",
+					"raw": "{{api}}/member/1",
 					"host": [
 						"{{api}}"
 					],
 					"path": [
 						"member",
-						"2"
+						"1"
 					]
 				}
 			},
