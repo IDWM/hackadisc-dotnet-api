@@ -24,6 +24,7 @@ var api = app.MapGroup("/api/member");
 api.MapPost("", CreateMemberAsync);
 api.MapGet("", GetMembersAsync);
 api.MapPut("/{id}", UpdateMemberAsync);
+api.MapGet("/{id}", GetMemberAsync);
 
 app.Run();
 
@@ -67,6 +68,19 @@ static async Task<IResult> GetMembersAsync(DataContext dataContext)
     var members = await dataContext.Members.ToListAsync();
 
     return TypedResults.Ok(members);
+}
+
+static async Task<IResult> GetMemberAsync(DataContext dataContext, [FromRoute] int id)
+{
+    var member = await dataContext.Members.FindAsync(id);
+
+    if (member == null)
+    {
+        ErrorMessageDto errorMessageDto = new() { Error = $"Integrante no encontrado." };
+        return Results.NotFound(errorMessageDto);
+    }
+
+    return TypedResults.Ok(member);
 }
 
 static async Task<IResult> UpdateMemberAsync(
